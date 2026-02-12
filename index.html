@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabio Ar-Condicionado</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+header{
+    background:#0a3d62;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.logo-title{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-title img{
+    width:40px;
+}
+
+nav{
+    background:#074173;
+    padding:10px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* CARROSSEL */
+.carousel{
+    position:relative;
+    width:100%;
+    height:400px;
+    overflow:hidden;
+}
+
+.carousel img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+    display:none;
+}
+
+.carousel img.active{
+    display:block;
+}
+
+.carousel button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);
+    color:rgb(145, 145, 145);
+    border:none;
+    padding:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+section{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.services{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:19px;
+}
+
+.card{
+    background:rgb(255, 255, 255);
+    width:280px;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 8px rgba(80, 80, 80, 0.1);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#0a3d62;
+}
+
+footer{
+    background:#0a3d62;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    .services{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-title">
+        <img src="transferir.png" alt="Ícone Ar">
+        <h1>Fabio Ar-Condicionado</h1>
+    </div>
+    <p>Instalação • Manutenção • Higienização</p>
+</header>
+
+<nav>
+    <a href="https://www.instagram.com/fabio.fabiobispo/">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="wa.me/message/LEROXJRTXQU5G1">Contato</a>
+</nav>
+
+<!-- CARROSSEL -->
+<div class="carousel">
+    <img src="https://images.ctfassets.net/qfxflpv0atz9/2rsFr00dyN38OK9UMPOoAQ/7de1ef4a9f0394ae41506852ea38bcf4/shutterstock_2277724957-770x400.png?fm=webp&q=90" class="active">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-J3AJVxKhLKJcAdEoeWzebU8lwZJ66A8Y4w&s">
+    <img src="https://png.pngtree.com/background/20230426/original/pngtree-man-is-repairing-an-air-conditioner-picture-image_2491145.jpg">
+    
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+</div>
+
+<section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>
+        Fabio ar condionado oferece soluções completas
+        em climatização residencial e empresarial.
+
+    </p>
+    <p>CHIK 10!!</p>
+</section>
+
+<section id="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Instalação</h3>
+            <p>Instalação profissional de ar-condicionado split e central.</p>
+        </div>
+
+        <div class="card">
+            <h3>Manutenção</h3>
+            <p>Manutenção preventiva e corretiva com garantia.</p>
+        </div>
+
+        <div class="card">
+            <h3>Higienização</h3>
+            <p>Limpeza completa para garantir ar puro e saudável.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>📞 (11) 99999-9999 | 📧 fabio.fabiobispo@outlook.com</p>
+    <a href="https://www.instagram.com/fabio.fabiobispo/" target="_blank">
+    <img src="insta.png" alt="Instagram" width="30">
+</a>
+</a>
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".carousel img");
+let index = 0;
+
+function showSlide(i){
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+}
+
+function nextSlide(){
+    index = (index + 1) % slides.length;
+    showSlide(index);
+}
+
+function prevSlide(){
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+}
+
+// troca automática a cada 4 segundos
+setInterval(nextSlide, 4000);
+</script>
+
+</body>
+</html>
+
